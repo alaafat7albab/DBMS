@@ -1,11 +1,13 @@
-if [ $# -eq 1 -a -d $1 ]
+echo "available databases"
+ls ./databases 
+read -p "Enter database name " dbName
+
+if [ -d ./databases/$dbName ]
 then
-        ls -d */
-	cd $1
-        echo "connected to $1"
-elif [ $# -lt 1 ]
-then
-	echo "invalid input"
+
+	ls ./databases/$dbName
+        echo "connected to $dbName"
+
 else
         echo "there in no such a database"
 fi

@@ -1,10 +1,9 @@
-if [ $# -eq 1 -a -d $1 ]
+read -p "Enter database name " dbName
+
+if [ -d ./databases/$dbName ]
 then
 	echo " this database already exist"
-elif [ $# -eq 1 ]
-then
-	mkdir $1 
-	echo "$1 directory created"
 else
-	echo "not invalid input"
+	mkdir ./databases/$dbName
+	echo "$dbName directory created"
 fi

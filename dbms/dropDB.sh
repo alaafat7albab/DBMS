@@ -1,10 +1,8 @@
-if [ $# -eq 1 -a -d $1 ]
+read -p "Enter database name " dbName
+if [ -d ./databases/$dbName ]
 then
-        rm -r $1
-        echo "$1 deleted"
-elif [ $# -lt 1 ]
-then
-	echo "invalid input"
+        rm -r ./databases/$dbName
+	echo "$dbName database has been deleted"
 else
         echo "there in no such a database"
 fi

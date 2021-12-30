@@ -3,23 +3,17 @@ select choice in "create database" "List database" "connect to databse" "drop da
 do
 	case $choice in 
 		"create database")
-			echo "enter database name "
-			read option
-			./createDB.sh $option
+			. ./createDB.sh 
 			;;
 		"List database") 
-			./listDB.sh
+			. ./listDB.sh
                         ;;
 		 "connect to databse")
-                        echo "enter database name"
-			read dbName 
-			./connectDB.sh $dbName
+             		. ./connectDB.sh
                         ;;
 
  		"drop database")
-                        echo "enter database name"
-			read dbName 
-			./dropDB.sh $dbName
+			. ./dropDB.sh 
                         ;;
 		*)
 			echo "not valid option"

@@ -1,8 +1,8 @@
 #to list directories only
-ls -d */ 2> err > output
+ls ./databases 2> err > output
 if [ $? -eq 0 ]
 then  
-	ls -d */
+	ls ./databases
 else
 echo "there no databases to show"
 fi
