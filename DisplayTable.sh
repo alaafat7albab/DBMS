@@ -1,9 +1,8 @@
 #!/bin/bash
-. ./ShowTables.sh 
+source ./ShowTables.sh 
 
 
 displayTable(){
-    set +x 
     while true
     do    
         echo "Please Enter Table Name"
@@ -32,7 +31,7 @@ displayTable(){
             case $answer in
                 1) 
                     clear
-                    cat ./databases/$dbName/$tableName/$tableName"_"des 
+                    cat ./databases/$dbName/$tableName/$tableName"_"desc
                     echo " "
                     break
                     ;;
@@ -49,5 +48,4 @@ displayTable(){
         fi
         break
     done
-    set -x
 }
