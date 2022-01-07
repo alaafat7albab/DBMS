@@ -7,7 +7,7 @@ source ./delete.sh
 source ./displayTable.sh 
 source ./alterTable.sh 
 source ./displayRow.sh 
-source ./updateTable.sh
+#source ./updateTable.sh
 
 DBoptions(){
     dbName=$1
