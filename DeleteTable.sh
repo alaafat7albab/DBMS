@@ -3,48 +3,45 @@ source ShowTables.sh
 
 dropTable(){
     #flags are just variables used to keep track of the state of something
-    flag=1
-    echo "choose Table To Drop"
+     flag=1
+    echo "Choose Table To Drop"
     read tableName
     if [[ $tableName == '' ]]
     then
-        echo "Table Name Can not be empty"
+        echo "table name can't be empty"
         dropTable
     elif [[ $tableName == / ]]
     then
-        echo "/ Not A Table Name"
+        echo "/ is not a table"
         dropTable
     elif [[ -d ./databases/$dbName/$tableName ]]
-    then 
-        echo "WARNING !!"
-        echo "All Data In This Table Will Be Delete!"
-        echo "Are You Sure You Want to Drop This Table? (Y,N)"
+    then
+        clear
+        echo "WARNING !!! "
+        echo "ALL DATA IN THIS Table WILL BE DELETED !"
+        echo "Are You Sure You Want To drop $tableName ? (Y,N)"
         read answer
-        until [[ flag = 0 ]]
+        until [ flag = 0 ]
         do
             case $answer in
-            [Yy]) 
+                [Yy] )
                     rm -r ./databases/$dbName/$tableName
                     if [[ $? == 0 ]]
-                    then 
-                        echo "====================================="
+                    then
                         echo "Table $tableName Deleted Successfully"
-                        echo "====================================="
                     fi
                     break
-                    ;;
-            
-            [Nn]) 
-                    echo "Canceld"
+                ;;
+                [Nn] )
+                    echo "Canceled"
                     break
-                    ;;
-            
-            *)
+                ;;
+                *)
                     clear
-                    echo "It's Not Vaild Option, Please Choose (Y,N)"
+                    echo "Please Enter Valid Answer (Y,N)"
                     read answer
-                    ;;
-            esac                   
+                ;;
+            esac
         done
     else
         echo "Table does Not Exist"

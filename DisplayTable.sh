@@ -1,49 +1,49 @@
 #!/bin/bash
-source ./ShowTables.sh 
-
+source ./ShowTables.sh
 
 displayTable(){
     while true
-    do    
-        echo "Please Enter Table Name"
+    do
+        echo "Enter Table Name To Display "
         read tableName
         if [[ $tableName == / ]]
-        then 
-            showTable $dbName
-            echo "/ Is Not a Table Name"
+        then
+            showTables $dbName
+            echo "/ is not a Table Name"
             displayTable
         elif [[ $tableName == '' ]]
-        then 
+        then
             showTables $dbName
-            echo "Table Name Can not be Empty"
+            echo "Table Name Can't Be Empty"
             displayTable
         elif [[ ! -d ./databases/$dbName/$tableName ]]
         then
-            showTable $dbName
-            echo "No Exiting Tables, Please Choose Another Name"
+            showTables $dbName
+            echo "Table Doesn't Exist, Choose Another Name"
             displayTable
-        else 
+        else
             clear
+            
             echo "1 - Diplay Table $tableName Description"
             echo "2 - Diplay Table $tableName Data"
             read answer
-
+            
             case $answer in
-                1) 
+                1)
+                    
                     clear
                     cat ./databases/$dbName/$tableName/$tableName"_"desc
-                    echo " "
+                    echo ""
                     break
-                    ;;
+                ;;
                 2)
-                    clear 
-                    cat ./databases/$dbName/$tableName/$tableName"_"data
-                    echo " "
-                    break
-                    ;;
-                *)
                     clear
-                    echo "it's not option"
+                    cat ./databases/$dbName/$tableName/$tableName"_"data
+                    echo ""
+                    break
+                ;;
+                *)
+                    echo "Not Valid Option"
             esac
         fi
         break

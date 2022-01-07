@@ -1,21 +1,17 @@
-#!/bin/bash 
+#!/bin/bash
 
-nullValues(){
-    echo "Should $colName Accept Null Values, Please Choose Number"
-    echo "1- Yes"
-    echo "2- No"
+nullvalue(){
+    echo  "Should $colName Accept Null Values y/n: "
     read answer
-    clear 
-    case $answer in 
-    1)
-        echo -e -n ": Null" >> ./databases/$dbName/$tableName/$tableName"_"desc
-        ;;
-    2)
-        echo -e -n ": Not Null" >> ./databases/$dbName/$tableName/$tableName"_"desc
-        ;;
-    *)
-        echo "It's Not a vailed Option"
-        nullValues
-        ;;
-    esac
+    clear
+    if [ $answer == 'y' ] || [ $answer == 'Y' ]
+    then
+        echo ":Null" >> ./databases/$dbName/$tableName/$tableName"_"desc
+    elif [ $answer == 'n' ] || [ $answer == 'N' ]
+    then
+        echo -e -n ":NotNull" >> ./databases/$dbName/$tableName/$tableName"_"desc
+    else
+        echo "Not a Valid Option"
+        nullvalue
+    fi
 }
