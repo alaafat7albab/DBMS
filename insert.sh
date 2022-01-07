@@ -105,14 +105,13 @@ insertRecord(){
         echo "This Table Name doesn't Exist, please try again"
         insertRecord $dbName
     else
-        # editFlag=0
-        # num= cat ./databases/$dbName/$tableName/$tableName"_"desc | wc -l
+    
           echo "Table Data : "
           echo "====================="
            cat ./databases/$dbName/$tableName/$tableName"_"data
         for j in ` cat ./databases/$dbName/$tableName/$tableName'_desc' `
         do
-            #  ((col++))
+    
             checkConstrains $dbName $tableName
         done
         echo -e "" >> ./databases/$dbName/$tableName/$tableName"_"data

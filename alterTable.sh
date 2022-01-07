@@ -46,10 +46,7 @@ alterTable(){
                     mv ./databases/$dbName/$tableName ./databases/$dbName/$newtableName
                     tableName=$newtableName
                     echo "table is renamed successfully"
-                    # else
-                    #     echo "Table Name Should Be String"
-                    #     alterTable
-                    # fi
+            
                 ;;
                 
                 2)
@@ -64,8 +61,7 @@ alterTable(){
                     datatypeSelect
                     echo -e  ":" >> ./databases/$dbName/$tableName/$tableName"_"desc
                     echo "$colName field is added to $tableName successfully"
-                    # else
-                    # fi
+                
                 ;;
                 
                 
@@ -106,11 +102,9 @@ alterTable(){
                                     echo "Field Name Must Be String"
                                     read -p "enter new name : " newfieldname
                                 done
-                                # then
+                        
                                 firstfield=$newfieldname
-                                # else
-                                #     echo "Field Name Must Be String"
-                                # fi
+                            
                             ;;
                             
                             2)
@@ -171,8 +165,6 @@ alterTable(){
                                 echo "$colName column is deleted to $tableName successfully"
                                 break
                             fi
-                            # else
-                            #     echo "Sorry But This Feild Doesn't Excist "
                         fi
                     done
                 ;;

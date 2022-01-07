@@ -2,35 +2,13 @@
 source ./datatype.sh
 source ./nullValues.sh
 
-# uniquevalue(){
-#     echo  "Should $colName values be unique y/n: "
-#     read answer
-#     clear
-#     if [ $answer == 'y' ] || [ $answer == 'Y' ]
-#     then
-#         echo ":unique" >> ./databases/$dbName/$tableName/$tableName"_"desc
-#     elif [ $answer == 'n' ] || [ $answer == 'N' ]
-#     then
-#         echo -e -n ":" >> ./databases/$dbName/$tableName/$tableName"_"desc
-#         nullvalue
-#     else
-#         echo "Not a Valid Option"
-#         uniquevalue
-#     fi
-
-# }
-
 CreateTable(){
     dbName="$1"
     echo "Enter Table Name : "
     echo ""
     read tableName
     clear
-    # if [[ $tableName == / ]]
-    # then
-    #     echo "/ Is Not a Valid Name For Table"
-    #     echo ""
-    #     CreateTable
+
     if [[ ! $tableName =~  ^[a-zA-Z]+[a-zA-Z0-9]*$ ]] || [[ $tableName == '' ]]
     then
         echo "Not a Valid Name for Table"
@@ -49,8 +27,6 @@ CreateTable(){
         echo ""
         read colNum
         clear
-        # if [[ $colNum -eq 0 ]]
-        # then
         
         until [[ $colNum =~ ^[2-9]+$ ]]
         do
@@ -60,7 +36,7 @@ CreateTable(){
             read colNum
             clear
         done
-        # fi
+
         #seq to print number of lines in file according to number of columns
         for i in $(seq $colNum)
         do
@@ -83,40 +59,7 @@ CreateTable(){
                 echo -e ":pk" >> ./databases/$dbName/$tableName/$tableName"_"desc
             else
                 tableCols=$(awk 'BEGIN {FS=":"} {print $1}' ./databases/$dbName/$tableName/$tableName'_desc')
-                # z=0
-                #   echo "enter the name of column $i : "
-                #   read colName
-                #   # while [[ colName == '' ]]
-                #   for g in $tableCols
-                #   do
-                #     if [[ $g -eq $colName ]]
-                #      then
-                #       #statements
-                #       z=1
-                #
-                #     else
-                #       z=0
-                #     fi
-                #   done
-                #
-                # until [[ $z -eq 0 ]]
-                #  do
-                #   #statements
-                #   echo "Sorry but repeated name not permited "
-                #   read -p "Enter the Name of col $i : " colName
-                #   for g in $tableCols
-                #   do
-                #     if [[ $g -eq $colName ]]
-                #      then
-                #       #statements
-                #       z=1
-                #
-                #     else
-                #       z=0
-                #     fi
-                #   done
-                # done
-                
+    
                 until [[ $colName =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]] && [[ ! $tableCols == *"$colName"* ]]
                 do
                     echo "Column Name Must be String and Start With Charachter and Not Repeated Before"
@@ -127,8 +70,7 @@ CreateTable(){
                 echo -n $colName >> ./databases/$dbName/$tableName/$tableName"_"desc
                 dataType
                 echo -e  ":" >> ./databases/$dbName/$tableName/$tableName"_"desc
-                # uniquevalue
-                # nullvalue
+            
             fi
         done
         echo ""
@@ -136,6 +78,7 @@ CreateTable(){
         echo "$tableName table is created successfully"
         echo "========================================="
         echo ""
+        DBoptions 
     fi
 }
 testPrev(){

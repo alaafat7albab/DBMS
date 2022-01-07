@@ -1,22 +1,23 @@
 #!/bin/bash
 
-source ./show.sh
-source ./createTable.sh
-source ./insert.sh
-source ./delete.sh
-source ./displayTable.sh
-source ./alterTable.sh
-source ./displayRow.sh
+source ./show.sh 
+source ./createTable.sh 
+source ./insert.sh 
+source ./delete.sh 
+source ./displayTable.sh 
+source ./alterTable.sh 
+source ./displayRow.sh 
 source ./updateTable.sh
 
 DBoptions(){
-    dbName="$1"
+    dbName=$1
+    echo "the databas is $dbName"
     loop=1
     while [ $loop -eq 1 ]
     do
         
         echo "===================="
-        echo "1 - Show Tables"
+        echo "1 - Show Tables" 
         echo "2 - Create New Table"
         echo "3 - Alter Table"
         echo "4 - Delete Table "
@@ -33,6 +34,7 @@ DBoptions(){
         case $choice in
             1)
                 showTables $dbName
+            
             ;;
             
             2)
@@ -70,12 +72,7 @@ DBoptions(){
                 showTables $dbName
                 displayrow $dbName
             ;;
-            
-            # 9)
-            #     showTables $dbName
-            #     deleterow $dbName
-            # ;;
-            
+          
             9)
                 updateTableData $dbName
             ;;
@@ -89,7 +86,5 @@ DBoptions(){
                 echo wrong entry
             ;;
         esac
-    done
-    
+    done    
 }
-DBoptions
