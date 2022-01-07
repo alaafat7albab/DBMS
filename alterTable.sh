@@ -1,5 +1,4 @@
-#!/bin/bashS
-source ./Insert.sh
+source ./insert.sh
 
 alterTable(){
     

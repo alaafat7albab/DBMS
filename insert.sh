@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 checkprimary(){
@@ -99,16 +100,19 @@ insertRecord(){
 
     col=0
     read -p "enter table name : " tableName
-    if [[ ! $tableName =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]] || [ ! -d ./databases/$dbName/$tableName ]
+    if [[ ! $tableName =~ ^[a-zA-Z]+[a-zA-Z0-9]*$ ]] || [ ! -d ./databases/$dbName/$tableName ] #|| [ -z $tableName ]
     then
         echo "This Table Name doesn't Exist, please try again"
         insertRecord $dbName
     else
+        # editFlag=0
+        # num= cat ./databases/$dbName/$tableName/$tableName"_"desc | wc -l
           echo "Table Data : "
           echo "====================="
            cat ./databases/$dbName/$tableName/$tableName"_"data
         for j in ` cat ./databases/$dbName/$tableName/$tableName'_desc' `
         do
+            #  ((col++))
             checkConstrains $dbName $tableName
         done
         echo -e "" >> ./databases/$dbName/$tableName/$tableName"_"data

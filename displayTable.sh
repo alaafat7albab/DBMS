@@ -1,9 +1,13 @@
 #!/bin/bash
-source ./ShowTables.sh
+source ./show.sh
 
 displayTable(){
     while true
     do
+        
+        # echo "existing tables :"
+        # echo $(ls ./databases/"$1")
+        # echo "======================="
         echo "Enter Table Name To Display "
         read tableName
         if [[ $tableName == / ]]
@@ -31,12 +35,15 @@ displayTable(){
             case $answer in
                 1)
                     
+                    # libreoffice ./databases/$dbName/$tableName/$tableName"_"desc
                     clear
                     cat ./databases/$dbName/$tableName/$tableName"_"desc
                     echo ""
                     break
                 ;;
                 2)
+                    
+                    # libreoffice ./databases/$dbName/$tableName/$tableName"_"data
                     clear
                     cat ./databases/$dbName/$tableName/$tableName"_"data
                     echo ""
@@ -48,4 +55,7 @@ displayTable(){
         fi
         break
     done
+    # echo "existing tables :"
+    # echo $(ls ./databases/"$1")
+    # echo "======================="
 }

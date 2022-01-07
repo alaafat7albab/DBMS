@@ -1,13 +1,13 @@
 #!/bin/bash
 
-source ./ShowTables.sh
-source ./CreateTable.sh
-source ./Insert.sh
-source ./DeleteTable.sh
-source ./DisplayTable.sh
-source ./AlterTable.sh
-source ./DisplayRow.sh
-source ./UpdateTable.sh
+source ./show.sh
+source ./createTable.sh
+source ./insert.sh
+source ./delete.sh
+source ./displayTable.sh
+source ./alterTable.sh
+source ./displayRow.sh
+source ./updateTable.sh
 
 DBoptions(){
     dbName="$1"
@@ -71,6 +71,11 @@ DBoptions(){
                 displayrow $dbName
             ;;
             
+            # 9)
+            #     showTables $dbName
+            #     deleterow $dbName
+            # ;;
+            
             9)
                 updateTableData $dbName
             ;;
@@ -87,3 +92,4 @@ DBoptions(){
     done
     
 }
+DBoptions
