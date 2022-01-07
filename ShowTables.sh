@@ -1,3 +1,4 @@
+#!/bin/bashS
 showTable(){
     echo "====================================="
 if [[ `ls ./databases/"$1"` == "" ]]

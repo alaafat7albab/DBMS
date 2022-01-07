@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "available databases"
 ls ./databases 
 read -p "Enter database name " dbName

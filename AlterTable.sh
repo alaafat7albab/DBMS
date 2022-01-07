@@ -1,3 +1,4 @@
+#!/bin/bashS
 source ./Insert.sh
 
 alterTable(){

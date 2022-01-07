@@ -1,3 +1,4 @@
+#!/bin/bash
 
 select choice in "create database" "List database" "connect to databse" "drop database" 
 do

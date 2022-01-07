@@ -1,3 +1,5 @@
+#!/bin/bash
+
 read -p "Enter database name " dbName
 
 if [ -d ./databases/$dbName ]
