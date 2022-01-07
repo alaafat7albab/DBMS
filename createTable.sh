@@ -78,7 +78,7 @@ CreateTable(){
         echo "$tableName table is created successfully"
         echo "========================================="
         echo ""
-        DBoptions 
+        DBoptions $dbName
     fi
 }
 testPrev(){
