@@ -81,18 +81,18 @@ CreateTable(){
         DBoptions $dbName
     fi
 }
-testPrev(){
-    for g in $tableCols
-    do
-        if [[ $g -eq $colName ]]
-        then
-            #statements
-            z="1"
-            break
-        else
-            z="0"
-        fi
-    done
-    echo "Z : $z"
-    echo "ColName: $colName"
-}
+#testPrev(){
+#    for g in $tableCols
+#    do
+#        if [[ $g -eq $colName ]]
+#        then
+#            #statements
+#            z="1"
+#            break
+#        else
+#            z="0"
+#        fi
+#    done
+#    echo "Z : $z"
+#    echo "ColName: $colName"
+#}
