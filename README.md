@@ -16,3 +16,9 @@ Useing a bash script that allows the following:
 
 ---
 
+## ▶️ Demo
+
+![demo](ezgif.com-gif-maker.gif)
+
+---
+
